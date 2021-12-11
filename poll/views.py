@@ -12,9 +12,9 @@ def home(request):
 # vote a poll
 def vote(request, poll_id):
     poll = Poll.objects.filter( id=poll_id ).first()
-    print( request.method )
+    if poll is None:
+        return redirect('poll:home')
     if request.method == 'POST':
-        print( request.POST )
         form_data = request.POST
         user_answer = form_data.get( f'{poll.question}' )
 
@@ -36,6 +36,8 @@ def vote(request, poll_id):
 #  show the result of a poll
 def result(request, poll_id):
     poll = Poll.objects.filter( id=poll_id ).first()
+    if poll is None:
+        return redirect( 'poll:home' )
     context = {'title': 'result | PollApp', 'poll': poll}
     return render( request, 'poll/result.html', context )
 

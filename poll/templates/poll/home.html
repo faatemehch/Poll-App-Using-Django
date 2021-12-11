@@ -8,7 +8,7 @@
                 <li class="list-group-item d-flex justify-content-between">
                     <p class="pull-left">{{ poll.question }}</p>
                     <div class="pull-right">
-                        <a href="" class="btn btn-outline-success">vote</a>
+                        <a href="{% url 'poll:vote' poll.id %}" class="btn btn-outline-success">vote</a>
                         <a href="{% url 'poll:result' poll.id %}" class="btn btn-outline-info">result</a>
                     </div>
                 </li>

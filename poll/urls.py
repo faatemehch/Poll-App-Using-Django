@@ -7,5 +7,5 @@ urlpatterns = [
     path( '', home, name='home' ),
     path( 'create', create, name='create' ),
     path( 'vote', vote, name='vote' ),
-    path( 'result', result, name='result' ),
+    path( 'result/<int:poll_id>', result, name='result' ),
 ]

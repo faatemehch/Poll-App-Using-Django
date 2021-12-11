@@ -6,13 +6,13 @@
             <h5 class="p-3">Create New Poll ...</h5>
         </div>
         <div>
-            <form method="post" action="{% url 'poll:create' %}" novalidate>
+            <form method="post" action="{% url 'poll:create' %}" id="poll-form">
                 {% csrf_token %}
                 <div class="form-row mt-2">
                     <div class="col-md-12">
                         <label for="txt-area">Poll Question ...</label>
                         <textarea class="form-control" id="txt-area" name="question"
-                                  placeholder="Required example textarea" required></textarea>
+                                  placeholder="Poll Question . . ." required></textarea>
                     </div>
                     <div class="col-md-4 mb-3 mt-2">
                         <label for="validationCustom01">Option 1</label>
@@ -36,8 +36,13 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Create Poll</button>
             </form>
         </div>
     </div>
+    <script>
+        $('.btn').submit(function (e) {
+            document.getElementById("poll-form").reset();
+        })
+    </script>
 {% endblock %}

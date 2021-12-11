@@ -1,4 +1,21 @@
 {% extends 'shared/_MainLayout.html' %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
+    <div class="col-md-8 offset-md-2">
+        <h4 class="text-center">{{ poll.question }}</h4>
+        <br>
+        <hr>
+        <p class="text-center text-secondary">{{ poll.option_1 }}
+            <span class="badge badge-pill badge-danger">{{ poll.option_1_counter }}</span>
+        </p>
+        <hr>
+        <p class="text-center text-secondary">{{ poll.option_2 }}
+            <span class="badge badge-pill badge-danger">{{ poll.option_2_counter }}</span>
+        </p>
+        <hr>
+        <p class="text-center text-secondary">{{ poll.option_3 }}
+            <span class="badge badge-pill badge-danger">{{ poll.option_3_counter }}</span>
+        </p>
+        <hr>
+    </div>
 {% endblock %}
